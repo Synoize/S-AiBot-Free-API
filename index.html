@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>S-AiBot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <style>
+    *{
+      scrollbar-width: none;
+      scroll-behavior: smooth;
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-black dark:bg-black dark:text-white transition-colors duration-300 font-sans h-screen overflow-hidden">
+
+  <!-- Header -->
+  <header class="fixed top-0 w-full p-4 md:px-10 shadow-sm bg-slate-100 dark:bg-black border-b dark:border-gray-700 z-10 flex justify-between items-center">
+    <h1 class="text-xl font-bold">S-AiBot</h1>
+    <div class="flex items-center space-x-4">
+      <button id="clearChat" onclick="clearChat()" title="Clear Chat" class="text-2xl">
+        <i class="ph ph-trash"></i>
+      </button>
+      <button id="toggleTheme" onclick="toggleDarkMode()" class="text-2xl transition">
+        <i id="themeIcon" class="ph ph-moon"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Chat messages -->
+  <main id="chatContainer" class="pt-20 pb-24 px-4 overflow-y-auto h-full space-y-4">
+    <div id="chatBox" class="max-w-4xl mx-auto flex flex-col space-y-4"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="fixed bottom-0 w-full p-4 bg-slate-100 dark:bg-black border-t dark:border-gray-700 z-10">
+    <div class="max-w-4xl mx-auto flex items-center space-x-2">
+      <input id="userInput" type="text" placeholder="Write a question..."
+        class="flex-1 px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-black dark:text-white border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-1 focus:ring-gray-400 dark:focus:ring-slate-100" />
+      <button onclick="sendResponse()"
+        class="bg-black dark:bg-white text-white dark:text-black px-5 py-2 rounded-full transition">Send</button>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+</html>
