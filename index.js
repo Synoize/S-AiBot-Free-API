@@ -37,7 +37,7 @@ async function sendResponse() {
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
-        "Authorization": "Bearer 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",
+        "Authorization": "Bearer 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",
         "HTTP-Referer": "https://synoize.netlify.app/",
         "X-Title": "Synoize",
         "Content-Type": "application/json"
@@ -49,6 +49,8 @@ async function sendResponse() {
     });
 
     const data = await response.json();
+    console.log(data);
+    
     const reply = data.choices?.[0]?.message?.content || "No response received.";
     botMessageElement.innerHTML = marked.parse(reply);
     saveMessage(reply, 'bot');
